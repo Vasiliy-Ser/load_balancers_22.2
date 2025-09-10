@@ -44,10 +44,10 @@ resource "yandex_compute_instance_group" "lamp_group" {
   }
 
   deploy_policy {
-    max_unavailable = 1
+    max_unavailable = 2
     max_expansion   = 1
     max_creating    = 1
-    max_deleting    = 1
+    max_deleting    = 2
   }
 
   health_check {
