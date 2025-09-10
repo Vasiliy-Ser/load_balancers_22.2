@@ -12,7 +12,7 @@
 
 **Что нужно сделать**
 
-1. Создать бакет Object Storage и разместить в нём файл с картинкой:  
+### 1. Создать бакет Object Storage и разместить в нём файл с картинкой:  
 
  - Создать бакет в Object Storage с произвольным именем (например, _имя_студента_дата_).  
  - Положить в бакет файл с картинкой.  
@@ -22,7 +22,7 @@
 
 В файле конфигурации [providers.tf](https://github.com/Vasiliy-Ser/load_balancers_22.2/blob/15ed581606149332da769c3fd54b0d77f7bbe037/src/providers.tf) сделал описание создания бакета, загрузку картинки с публичным доступом.  
  
-2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:   
+### 2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:   
 
  - Создать Instance Group с тремя ВМ и шаблоном LAMP. Для LAMP рекомендуется использовать `image_id = fd827b91d99psvq5fjit`.  
  - Для создания стартовой веб-страницы рекомендуется использовать раздел `user_data` в [meta_data](https://cloud.yandex.ru/docs/compute/concepts/vm-metadata).  
@@ -38,7 +38,7 @@
   Входящий трафик разрешен по 22, 80, 443 портам, описание в [security.tf](https://github.com/Vasiliy-Ser/load_balancers_22.2/blob/15ed581606149332da769c3fd54b0d77f7bbe037/src/security.tf)  
   Команды создания стартовой веб-страницы указаны в [cloud-init.yml](https://github.com/Vasiliy-Ser/load_balancers_22.2/blob/15ed581606149332da769c3fd54b0d77f7bbe037/src/cloud-init.yml)   
    
-3. Подключить группу к сетевому балансировщику:  
+### 3. Подключить группу к сетевому балансировщику:  
 
  - Создать сетевой балансировщик.  
  - Проверить работоспособность, удалив одну или несколько ВМ.  
@@ -61,9 +61,9 @@
 При остановке 2 ВМ, одна из них сразу повторно запускается:  
 ![answer9](https://github.com/Vasiliy-Ser/load_balancers_22.2/blob/15ed581606149332da769c3fd54b0d77f7bbe037/png/9.png)     
 
-4. (дополнительно)* Создать Application Load Balancer с использованием Instance group и проверкой состояния.  
+### 4. (дополнительно)* Создать Application Load Balancer с использованием Instance group и проверкой состояния.  
 
-Полезные документы:  
+### Полезные документы:  
 
 - [Compute instance group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/compute_instance_group).  
 - [Network Load Balancer](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/lb_network_load_balancer).  
